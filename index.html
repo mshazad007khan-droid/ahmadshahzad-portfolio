@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Ahmad Shahzad — Freelance Operator / Web &amp; App Developer</title>
-<meta name="description" content="Portfolio of Ahmad Shahzad — freelancing, web &amp; app development, graphic design, ethical security." />
+<title>Ahmad Shahzad | Web Developer, App Developer &amp; Lead Generation Specialist</title>
+<meta name="description" content="Ahmad Shahzad is a freelance web developer, app developer and lead generation specialist from Pakistan. Explore his portfolio, web development, app development, graphic design, video editing and digital services." />
+  <meta name="author" content="Ahmad Shahzad" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#07070a" />
+  <link rel="canonical" href="https://ahmadshahzad-portfolio.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ahmad Shahzad | Web Developer &amp; App Developer" />
+  <meta property="og:description" content="Official portfolio of Ahmad Shahzad — Web Development, App Development, Graphic Design, Video Editing and Lead Generation." />
+  <meta property="og:url" content="https://ahmadshahzad-portfolio.vercel.app/" />
+  <meta property="og:site_name" content="Ahmad Shahzad" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ahmad Shahzad | Web Developer &amp; App Developer" />
+  <meta name="twitter:description" content="Official portfolio of Ahmad Shahzad — Web Development, App Development, Graphic Design, Video Editing and Lead Generation." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,12 +88,12 @@ button{font:inherit;background:none;border:none;color:inherit;cursor:pointer;}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
 .reveal.in-view{opacity:1;transform:translateY(0);}
 
-/* decorative motion here is gentle/looping (no strobing or large parallax),
-   so it stays enabled even when the OS requests reduced motion — only the
-   scroll-behavior is softened for comfort. */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
 }
+body.reduce-motion #bgCanvas{display:none;}
 
 /* thin gold vignette + grain, quiet */
 .vignette{
@@ -176,7 +188,7 @@ button{font:inherit;background:none;border:none;color:inherit;cursor:pointer;}
    HERO
 ============================================================ */
 .hero{
-  position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
   overflow:hidden;padding:calc(var(--nav-h) + 24px) 40px 80px;
 }
 #bgCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.4;z-index:2;}
@@ -199,6 +211,7 @@ button{font:inherit;background:none;border:none;color:inherit;cursor:pointer;}
 .term-inner .ok{color:#7ee787;opacity:.85;}
 .term-inner .dim{opacity:.55;}
 @keyframes termScroll{ from{transform:translateY(0);} to{transform:translateY(-50%);} }
+body.reduce-motion .term-inner{animation:none;}
 @media (max-width:640px){
   .term-inner{font-size:10.5px;line-height:2;padding:0 5vw;}
 }
@@ -451,7 +464,7 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
   .wrap,.hero,.section-head,.work-list,.about,.contact,footer{padding-left:20px;padding-right:20px;}
   .nav{padding:0 20px;}
   .nav-links{
-    position:fixed;inset:0;height:100vh;height:100svh;background:var(--bg);
+    position:fixed;inset:0;height:100svh;background:var(--bg);
     flex-direction:column;justify-content:center;align-items:flex-start;padding:0 28px;gap:26px;font-size:19px;
     transform:translateX(100%);transition:transform .45s var(--ease);
   }
@@ -471,6 +484,33 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
   footer{justify-content:center;text-align:center;}
 }
 </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmad Shahzad",
+    "url": "https://ahmadshahzad-portfolio.vercel.app/",
+    "jobTitle": "Freelance Web Developer",
+    "description": "Freelance web developer and app developer from Pakistan offering web development, app development, graphic design, video editing, lead generation, and ethical security services.",
+    "sameAs": [
+      "https://www.instagram.com/whats._.ahmad._.786/",
+      "https://www.tiktok.com/@.itx_ahmad_786",
+      "https://www.facebook.com/profile.php?id=61564055395396"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ahmad Shahzad",
+    "alternateName": "Ahmad Shahzad Portfolio",
+    "url": "https://ahmadshahzad-portfolio.vercel.app/"
+  }
+  </script>
+
 </head>
 <body>
 
@@ -484,7 +524,7 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
   <span id="audioLabel">SOUND OFF</span>
 </button>
 
-<nav class="nav">
+<nav class="nav" aria-label="Primary navigation">
   <a href="#top" class="logo" data-sfx="nav">AS</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#work" data-sfx="nav">Work</a></li>
@@ -499,22 +539,23 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
 <main>
 
   <!-- HERO -->
-  <section id="top" class="hero">
+  <section id="top" class="hero" aria-labelledby="hero-title">
     <div class="terminal-log" id="terminalLog" aria-hidden="true">
       <div class="term-inner" id="termInner"></div>
     </div>
     <div class="hero-content">
       <div class="hero-main">
         <p class="eyebrow">Freelance Operator · Est. 2022</p>
-        <h1 class="hero-title">
+        <h1 id="hero-title" class="hero-title">
           <span class="line"><span>Ahmad</span></span>
-          <span class="line"><span class="accent">Shahzad</span></span>
+          <span class="line"><span class="accent">Shahzad </span></span>
         </h1>
-        <p class="hero-sub">I design and build web &amp; mobile products that look premium — and I keep every account I touch locked down. Design, code, and security, handled with care.</p>
+        <p class="hero-sub">I’m Ahmad Shahzad, a freelance web developer and app developer from Pakistan. I build premium websites and mobile products, with services including web development, app development, graphic design, video editing, lead generation, and ethical security.</p>
         <div class="hero-meta">
           <div>Based in<strong>Bahawalpur, Pakistan</strong></div>
           <div>Available from<strong>Q4 2026</strong></div>
-          <div>Services<strong>Web Dev · App Dev · Graphic Design · Video Editing · Ethical Security</strong></div>
+          <div>Role<strong>Freelance Web Developer &amp; App Developer</strong></div>
+          <div>Services<strong>Web Dev · App Dev · Graphic Design · Video Editing · Lead Generation · Ethical Security</strong></div>
         </div>
       </div>
 
@@ -549,7 +590,7 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
       <div class="work-row reveal" data-preview="1" tabindex="0" role="button" aria-expanded="false">
         <span class="work-num">01</span>
         <div class="work-title-group">
-          <h3>Freelancing — Lead Gen, Data Entry, Outreach</h3>
+          <h3>Freelancing — Lead Generation, Data Entry, Outreach</h3>
           <div class="work-tags"><span>3 Years</span><span>Experience</span></div>
         </div>
         <span class="work-year">2022</span>
@@ -683,7 +724,7 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
     </div>
 
     <div class="socials">
-      <a href="https://wa.me/923001234567" target="_blank" rel="noopener" data-sfx="link">
+      <a href="https://wa.me/923264931117" target="_blank" rel="noopener" data-sfx="link">
         <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.5-.17-.01-.36-.01-.56-.01-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.43 0 1.43 1.05 2.82 1.19 3.01.15.19 2.06 3.15 5 4.42.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.34z"/><path d="M12.04 2.5c-5.24 0-9.5 4.26-9.5 9.5 0 1.68.44 3.3 1.28 4.72L2.5 21.5l4.9-1.28a9.48 9.48 0 0 0 4.64 1.18h.01c5.24 0 9.5-4.26 9.5-9.5s-4.27-9.4-9.51-9.4zm5.6 15.09a7.9 7.9 0 0 1-5.6 2.32h-.01a7.9 7.9 0 0 1-4.03-1.1l-.29-.17-2.9.76.78-2.83-.19-.29a7.89 7.89 0 0 1-1.21-4.2c0-4.37 3.56-7.92 7.94-7.92 2.12 0 4.11.83 5.61 2.33a7.87 7.87 0 0 1 2.32 5.6c0 4.37-3.55 7.5-7.42 7.5z"/></svg>
         Whatsapp
       </a>
@@ -713,11 +754,8 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
 (function(){
   "use strict";
 
-  /* NOTE: background particles / marquee / orbit rings are gentle looping
-     motion (no strobing, no large parallax) so they stay ON regardless of
-     the OS "reduce motion" setting — otherwise the whole animated look
-     silently disappears on phones that have that setting enabled. */
-  var reduceMotion = false;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){ document.body.classList.add('reduce-motion'); }
   var year = document.getElementById('year');
   if(year) year.textContent = new Date().getFullYear();
 
@@ -821,9 +859,6 @@ footer .status i{width:5px;height:5px;background:var(--gold);border-radius:50%;d
   }
   sizeCanvas();
   window.addEventListener('resize', sizeCanvas);
-  window.addEventListener('load', sizeCanvas);
-  window.addEventListener('orientationchange', function(){ setTimeout(sizeCanvas, 200); });
-  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(sizeCanvas); }
 
   function drawParticles(){
     var w = hero.clientWidth, h = hero.clientHeight;
